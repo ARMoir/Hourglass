@@ -10,8 +10,10 @@ namespace Hourglass
         public static void SetFrame()
         {
             Program.Display.FrameString.Append(@"+8-=-=-=-=-=-=-=-=-8+" + (Char)10);
-            Program.Display.FrameString.Append(@"|...,.-'''''''-.,...|" + (Char)10);
-            Program.Display.FrameString.Append(@"|../*************\..|" + (Char)10);
+            Program.Display.FrameString.Append(@"|.,.-'''''''''''-.,.|" + (Char)10);
+            Program.Display.FrameString.Append(@"|/*****************\|" + (Char)10);
+            Program.Display.FrameString.Append(@"|\*****************/|" + (Char)10);
+            Program.Display.FrameString.Append(@"|.\***************/.|" + (Char)10);
             Program.Display.FrameString.Append(@"|..\*************/..|" + (Char)10);
             Program.Display.FrameString.Append(@"|...\***********/...|" + (Char)10);
             Program.Display.FrameString.Append(@"|....\*********/....|" + (Char)10);
@@ -25,8 +27,10 @@ namespace Hourglass
             Program.Display.FrameString.Append(@"|..../         \....|" + (Char)10);
             Program.Display.FrameString.Append(@"|.../           \...|" + (Char)10);
             Program.Display.FrameString.Append(@"|../             \..|" + (Char)10);
-            Program.Display.FrameString.Append(@"|..\             /..|" + (Char)10);
-            Program.Display.FrameString.Append(@"|...'--_______--'...|" + (Char)10);
+            Program.Display.FrameString.Append(@"|./               \.|" + (Char)10);
+            Program.Display.FrameString.Append(@"|/                 \|" + (Char)10);
+            Program.Display.FrameString.Append(@"|\                 /|" + (Char)10);
+            Program.Display.FrameString.Append(@"|.'--___________--'.|" + (Char)10);
             Program.Display.FrameString.Append(@"+8-=-=-=-=-=-=-=-=-8+" + (Char)10);
         }
     }

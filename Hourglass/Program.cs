@@ -39,25 +39,18 @@ namespace Hourglass
             //Set the Values for Movement Calculations
             string[] Lines = Display.FrameString.ToString().Split((Char)10);
             Display.Width = Lines[0].Length + 1;
-            int Time = 30;
+            int Time = 2700;
             Time = (Time * 1000) / (Display.FrameString.ToString().Split('*').Length -1);
 
             do
             {
                 Console.ForegroundColor = Display.Color;
 
-                for (int i = Display.FrameChar.Count - 1; i >= 0; i--)
-                {
-                    int Check = Display.Random.Next(0, 2);
+                foreach (int i in Enumerable.Range(0, Display.FrameChar.Count).OrderBy(x => Display.Random.Next()))
+                    {
 
-                    if (Check == 0)
-                    {
-                        Check = -1;
-                    }
-                    else
-                    {
-                        Check = 1;
-                    }
+                    int Check = Display.Random.Next(0, 2);
+                    if (Check == 0){Check = -1;}else{Check = 1;}
 
                     if (((i + Display.Width + Display.Offset - 1) > 0) && ((i + Display.Width + Display.Offset + 1) < Display.FrameChar.Count))
                     {
