@@ -53,22 +53,25 @@ namespace Hourglass
                     {
                         Display.FrameChar[i] = " ";
 
-                        if (Display.FrameChar[i + Display.Width] == " ")
+                        bool replacedString = false;
+
+                        foreach (int index in new int[]
                         {
-                            Display.FrameChar[i + Display.Width] = "*";
+                            i + Display.Width,
+                            i + Display.Width + Direction,
+                            i + Display.Width - Direction
+                        })
+                        {
+                            if (Display.FrameChar[index] == " ")
+                            {
+                                Display.FrameChar[index] = "*";
+                                replacedString = true;
+                                break;
+                            }
                         }
-                        else if (Display.FrameChar[i + Display.Width + Direction] == " ")
-                        {
-                            Display.FrameChar[i + Display.Width + Direction] = "*";
-                        }
-                        else if (Display.FrameChar[i + Display.Width + (Direction * -1)] == " ")
-                        {
-                            Display.FrameChar[i + Display.Width + (Direction * -1)] = "*";
-                        }
-                        else
-                        {
+
+                        if (!replacedString)
                             Display.FrameChar[i] = "*";
-                        }
                     }
                 }
 
