@@ -49,7 +49,7 @@ namespace Hourglass
                 {
                     int Direction = Display.Random.Next(0, 2) == 0 ? -1 : 1;
 
-                    if (((i + Display.Width - 1) > 0) && ((i + Display.Width + 1) < Display.FrameChar.Count) && Display.FrameChar[i] == "*")
+                    if (((i + Display.Width) > 1) && ((i + Display.Width + 1) < Display.FrameChar.Count) && Display.FrameChar[i] == "*")
                     {
                         Display.FrameChar[i] = " ";
 
