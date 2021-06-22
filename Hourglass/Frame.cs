@@ -6,29 +6,35 @@ namespace Hourglass
     {
         public static void SetFrame()
         {
-            Program.Display.FrameString.Append(@"+8-=-=-=-=-=-=-=-=-8+" + (char)10);
-            Program.Display.FrameString.Append(@"|.,.-'''''''''''-.,.|" + (char)10);
-            Program.Display.FrameString.Append(@"|/*****************\|" + (char)10);
-            Program.Display.FrameString.Append(@"|\*****************/|" + (char)10);
-            Program.Display.FrameString.Append(@"|.\***************/.|" + (char)10);
-            Program.Display.FrameString.Append(@"|..\*************/..|" + (char)10);
-            Program.Display.FrameString.Append(@"|...\***********/...|" + (char)10);
-            Program.Display.FrameString.Append(@"|....\*********/....|" + (char)10);
-            Program.Display.FrameString.Append(@"|.....\*******/.....|" + (char)10);
-            Program.Display.FrameString.Append(@"|......\*****/......|" + (char)10);
-            Program.Display.FrameString.Append(@"|.......\***/.......|" + (char)10);
-            Program.Display.FrameString.Append(@"|........) (........|" + (char)10);
-            Program.Display.FrameString.Append(@"|......./   \.......|" + (char)10);
-            Program.Display.FrameString.Append(@"|....../     \......|" + (char)10);
-            Program.Display.FrameString.Append(@"|...../       \.....|" + (char)10);
-            Program.Display.FrameString.Append(@"|..../         \....|" + (char)10);
-            Program.Display.FrameString.Append(@"|.../           \...|" + (char)10);
-            Program.Display.FrameString.Append(@"|../             \..|" + (char)10);
-            Program.Display.FrameString.Append(@"|./               \.|" + (char)10);
-            Program.Display.FrameString.Append(@"|/                 \|" + (char)10);
-            Program.Display.FrameString.Append(@"|\                 /|" + (char)10);
-            Program.Display.FrameString.Append(@"|.'--___________--'.|" + (char)10);
-            Program.Display.FrameString.Append(@"+8-=-=-=-=-=-=-=-=-8+" + (char)10);
+            foreach (string line in new string[]
+            {
+                @"+8-=-=-=-=-=-=-=-=-8+",
+                @"|.,.-'''''''''''-.,.|",
+                @"|/*****************\|",
+                @"|\*****************/|",
+                @"|.\***************/.|",
+                @"|..\*************/..|",
+                @"|...\***********/...|",
+                @"|....\*********/....|",
+                @"|.....\*******/.....|",
+                @"|......\*****/......|",
+                @"|.......\***/.......|",
+                @"|........) (........|",
+                @"|......./   \.......|",
+                @"|....../     \......|",
+                @"|...../       \.....|",
+                @"|..../         \....|",
+                @"|.../           \...|",
+                @"|../             \..|",
+                @"|./               \.|",
+                @"|/                 \|",
+                @"|\                 /|",
+                @"|.'--___________--'.|",
+                @"+8-=-=-=-=-=-=-=-=-8+"
+            })
+            {
+                Program.Display.FrameString.Append(line + (char)10);
+            }
         }
     }
 }
