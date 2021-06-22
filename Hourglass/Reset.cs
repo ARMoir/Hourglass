@@ -13,12 +13,9 @@ namespace Hourglass
         {
             Display.FrameChar.Clear();
             Display.FrameString.Clear();
-            Display.DisplayFrame.Clear();
-            
+            Display.DisplayFrame.Clear();          
             Frame.SetFrame();
             Display.FrameChar.AddRange(Display.FrameString.ToString().Select(Chars => Chars.ToString()));
-
-            Display.Offset = 0;
         }
     }
 }

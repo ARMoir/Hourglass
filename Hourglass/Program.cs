@@ -14,23 +14,23 @@ namespace Hourglass
             public static List<string> FrameChar { get; set; } = new List<string>();
             public static StringBuilder FrameString { get; set; } = new StringBuilder();
             public static StringBuilder DisplayFrame { get; set; } = new StringBuilder();
-            public static Random Random { get; set; } = new Random();
             public static ConsoleColor Color { get; set; } = ConsoleColor.Yellow;
-            public static int Offset { get; set; } = 0;
             public static int Width { get; set; } = 0;
+            public static int Time { get; set; } = 30;
+            public static Random Random { get; set; } = new Random();
         }
 
         static void Main(string[] args)
         {
+
+            //Start Thred to Read Keypress
+            Task.Factory.StartNew(() => Key.Press());
+
             //Pull in the Board
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 Console.SetWindowSize(60, 40);
             }
-
-            //Start Thred to Read Keypress
-            Task.Factory.StartNew(() => Key.Press());
-
             Console.CursorVisible = false;
             Console.Clear();
             Frame.SetFrame();
@@ -39,36 +39,35 @@ namespace Hourglass
             //Set the Values for Movement Calculations
             string[] Lines = Display.FrameString.ToString().Split((Char)10);
             Display.Width = Lines[0].Length + 1;
-            int Time = 2700;
-            Time = (Time * 1000) / (Display.FrameString.ToString().Split('*').Length -1);
+            Display.Time = (Display.Time * 1000) / (Display.FrameString.ToString().Split('*').Length -1);
 
             do
             {
                 Console.ForegroundColor = Display.Color;
 
                 foreach (int i in Enumerable.Range(0, Display.FrameChar.Count).OrderBy(x => Display.Random.Next()))
-                    {
+                {
+                    int Direction = Display.Random.Next(0, 2);
 
-                    int Check = Display.Random.Next(0, 2);
-                    if (Check == 0){Check = -1;}else{Check = 1;}
+                    if (Direction == 0){ Direction = -1;}else{ Direction = 1;}
 
-                    if (((i + Display.Width + Display.Offset - 1) > 0) && ((i + Display.Width + Display.Offset + 1) < Display.FrameChar.Count))
+                    if (((i + Display.Width - 1) > 0) && ((i + Display.Width + 1) < Display.FrameChar.Count))
                     {
                         if (Display.FrameChar[i] == "*")
                         {
                             Display.FrameChar[i] = " ";
 
-                            if (Display.FrameChar[i + (Display.Width + Display.Offset)] == " ")
+                            if (Display.FrameChar[i + Display.Width] == " ")
                             {
-                                Display.FrameChar[i + (Display.Width + Display.Offset)] = "*";
+                                Display.FrameChar[i + Display.Width] = "*";
                             }
-                            else if (Display.FrameChar[i + (Display.Width + Display.Offset) + Check] == " ")
+                            else if (Display.FrameChar[i + Display.Width + Direction] == " ")
                             {
-                                Display.FrameChar[i + (Display.Width + Display.Offset) + Check] = "*";
+                                Display.FrameChar[i + Display.Width + Direction] = "*";
                             }
-                            else if (Display.FrameChar[i + (Display.Width + Display.Offset) + (Check * -1)] == " ")
+                            else if (Display.FrameChar[i + Display.Width + (Direction * -1)] == " ")
                             {
-                                Display.FrameChar[i + (Display.Width + Display.Offset) + (Check * -1)] = "*";
+                                Display.FrameChar[i + Display.Width + (Direction * -1)] = "*";
                             }
                             else
                             {
@@ -76,7 +75,6 @@ namespace Hourglass
                             }
                         }
                     }
-
                 }
 
                 //Update Display
@@ -87,7 +85,7 @@ namespace Hourglass
                 //Write Display to Console
                 Console.SetCursorPosition(0, 0);
                 Console.Write(Display.DisplayFrame);
-                System.Threading.Thread.Sleep(Time);
+                System.Threading.Thread.Sleep(Display.Time);
 
             } while (true);
         }

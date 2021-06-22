@@ -16,25 +16,6 @@ namespace Hourglass
 
                 switch (Key)
                 {
-                    case ConsoleKey.UpArrow:
-                    case ConsoleKey.W:
-                        
-                        break;
-
-                    case ConsoleKey.LeftArrow:
-                    case ConsoleKey.A:
-                        Display.Offset--;
-                        break;
-
-                    case ConsoleKey.DownArrow:
-                    case ConsoleKey.S:
-                        
-                        break;
-
-                    case ConsoleKey.RightArrow:
-                    case ConsoleKey.D:
-                        Display.Offset++;
-                        break;
 
                     case ConsoleKey.Delete:
 
