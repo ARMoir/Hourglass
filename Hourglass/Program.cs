@@ -51,28 +51,25 @@ namespace Hourglass
 
                     if (Direction == 0){ Direction = -1;}else{ Direction = 1;}
 
-                    if (((i + Display.Width - 1) > 0) && ((i + Display.Width + 1) < Display.FrameChar.Count))
+                    if (((i + Display.Width - 1) > 0) && ((i + Display.Width + 1) < Display.FrameChar.Count) && Display.FrameChar[i] == "*")
                     {
-                        if (Display.FrameChar[i] == "*")
-                        {
-                            Display.FrameChar[i] = " ";
+                        Display.FrameChar[i] = " ";
 
-                            if (Display.FrameChar[i + Display.Width] == " ")
-                            {
-                                Display.FrameChar[i + Display.Width] = "*";
-                            }
-                            else if (Display.FrameChar[i + Display.Width + Direction] == " ")
-                            {
-                                Display.FrameChar[i + Display.Width + Direction] = "*";
-                            }
-                            else if (Display.FrameChar[i + Display.Width + (Direction * -1)] == " ")
-                            {
-                                Display.FrameChar[i + Display.Width + (Direction * -1)] = "*";
-                            }
-                            else
-                            {
-                                Display.FrameChar[i] = "*";
-                            }
+                        if (Display.FrameChar[i + Display.Width] == " ")
+                        {
+                            Display.FrameChar[i + Display.Width] = "*";
+                        }
+                        else if (Display.FrameChar[i + Display.Width + Direction] == " ")
+                        {
+                            Display.FrameChar[i + Display.Width + Direction] = "*";
+                        }
+                        else if (Display.FrameChar[i + Display.Width + (Direction * -1)] == " ")
+                        {
+                            Display.FrameChar[i + Display.Width + (Direction * -1)] = "*";
+                        }
+                        else
+                        {
+                            Display.FrameChar[i] = "*";
                         }
                     }
                 }
