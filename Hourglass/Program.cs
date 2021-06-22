@@ -47,9 +47,7 @@ namespace Hourglass
 
                 foreach (int i in Enumerable.Range(0, Display.FrameChar.Count).OrderBy(x => Display.Random.Next()))
                 {
-                    int Direction = Display.Random.Next(0, 2);
-
-                    if (Direction == 0){ Direction = -1;}else{ Direction = 1;}
+                    int Direction = Display.Random.Next(0, 2) == 0 ? -1 : 1;
 
                     if (((i + Display.Width - 1) > 0) && ((i + Display.Width + 1) < Display.FrameChar.Count) && Display.FrameChar[i] == "*")
                     {
