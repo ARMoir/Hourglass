@@ -6,29 +6,29 @@ namespace Hourglass
     {
         public static void SetFrame()
         {
-            Program.Display.FrameString.Append(@"+8-=-=-=-=-=-=-=-=-8+" + 10);
-            Program.Display.FrameString.Append(@"|.,.-'''''''''''-.,.|" + 10);
-            Program.Display.FrameString.Append(@"|/*****************\|" + 10);
-            Program.Display.FrameString.Append(@"|\*****************/|" + 10);
-            Program.Display.FrameString.Append(@"|.\***************/.|" + 10);
-            Program.Display.FrameString.Append(@"|..\*************/..|" + 10);
-            Program.Display.FrameString.Append(@"|...\***********/...|" + 10);
-            Program.Display.FrameString.Append(@"|....\*********/....|" + 10);
-            Program.Display.FrameString.Append(@"|.....\*******/.....|" + 10);
-            Program.Display.FrameString.Append(@"|......\*****/......|" + 10);
-            Program.Display.FrameString.Append(@"|.......\***/.......|" + 10);
-            Program.Display.FrameString.Append(@"|........) (........|" + 10);
-            Program.Display.FrameString.Append(@"|......./   \.......|" + 10);
-            Program.Display.FrameString.Append(@"|....../     \......|" + 10);
-            Program.Display.FrameString.Append(@"|...../       \.....|" + 10);
-            Program.Display.FrameString.Append(@"|..../         \....|" + 10);
-            Program.Display.FrameString.Append(@"|.../           \...|" + 10);
-            Program.Display.FrameString.Append(@"|../             \..|" + 10);
-            Program.Display.FrameString.Append(@"|./               \.|" + 10);
-            Program.Display.FrameString.Append(@"|/                 \|" + 10);
-            Program.Display.FrameString.Append(@"|\                 /|" + 10);
-            Program.Display.FrameString.Append(@"|.'--___________--'.|" + 10);
-            Program.Display.FrameString.Append(@"+8-=-=-=-=-=-=-=-=-8+" + 10);
+            Program.Display.FrameString.Append(@"+8-=-=-=-=-=-=-=-=-8+" + (Char)10);
+            Program.Display.FrameString.Append(@"|.,.-'''''''''''-.,.|" + (Char)10);
+            Program.Display.FrameString.Append(@"|/*****************\|" + (Char)10);
+            Program.Display.FrameString.Append(@"|\*****************/|" + (Char)10);
+            Program.Display.FrameString.Append(@"|.\***************/.|" + (Char)10);
+            Program.Display.FrameString.Append(@"|..\*************/..|" + (Char)10);
+            Program.Display.FrameString.Append(@"|...\***********/...|" + (Char)10);
+            Program.Display.FrameString.Append(@"|....\*********/....|" + (Char)10);
+            Program.Display.FrameString.Append(@"|.....\*******/.....|" + (Char)10);
+            Program.Display.FrameString.Append(@"|......\*****/......|" + (Char)10);
+            Program.Display.FrameString.Append(@"|.......\***/.......|" + (Char)10);
+            Program.Display.FrameString.Append(@"|........) (........|" + (Char)10);
+            Program.Display.FrameString.Append(@"|......./   \.......|" + (Char)10);
+            Program.Display.FrameString.Append(@"|....../     \......|" + (Char)10);
+            Program.Display.FrameString.Append(@"|...../       \.....|" + (Char)10);
+            Program.Display.FrameString.Append(@"|..../         \....|" + (Char)10);
+            Program.Display.FrameString.Append(@"|.../           \...|" + (Char)10);
+            Program.Display.FrameString.Append(@"|../             \..|" + (Char)10);
+            Program.Display.FrameString.Append(@"|./               \.|" + (Char)10);
+            Program.Display.FrameString.Append(@"|/                 \|" + (Char)10);
+            Program.Display.FrameString.Append(@"|\                 /|" + (Char)10);
+            Program.Display.FrameString.Append(@"|.'--___________--'.|" + (Char)10);
+            Program.Display.FrameString.Append(@"+8-=-=-=-=-=-=-=-=-8+" + (Char)10);
         }
     }
 }
