@@ -37,7 +37,7 @@ namespace Hourglass
             Display.FrameChar.AddRange(Display.FrameString.ToString().Select(Chars => Chars.ToString()));
 
             //Set the Values for Movement Calculations
-            string[] Lines = Display.FrameString.ToString().Split((Char)10);
+            string[] Lines = Display.FrameString.ToString().Split((char)10);
             Display.Width = Lines[0].Length + 1;
             Display.Time = (Display.Time * 1000) / (Display.FrameString.ToString().Split('*').Length -1);
 
