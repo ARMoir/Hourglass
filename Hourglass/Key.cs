@@ -1,13 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 using static Hourglass.Program;
 
 namespace Hourglass
 {
     class Key
     {
+        /// <summary>
+        /// Keys that change the color when pressed
+        /// </summary>
+        private static Dictionary<ConsoleKey, ConsoleColor> colorKeys = new()
+        {
+            { ConsoleKey.R, ConsoleColor.Red },
+            { ConsoleKey.G, ConsoleColor.Green },
+            { ConsoleKey.B, ConsoleColor.Blue },
+            { ConsoleKey.C, ConsoleColor.Cyan },
+            { ConsoleKey.M, ConsoleColor.Magenta },
+            { ConsoleKey.Y, ConsoleColor.Yellow }
+        };
+
         public static void Press()
         {
             do
@@ -26,69 +38,11 @@ namespace Hourglass
                         Environment.Exit(-1);
                         break;
 
-                    case ConsoleKey.R:
-                        if (Display.Color != ConsoleColor.Red)
+                    default:
+                        if (colorKeys.ContainsKey(Key))
                         {
-                            Display.Color = ConsoleColor.Red;
-                        }
-                        else
-                        {
-                            Display.Color = ConsoleColor.White;
-                        }
-                        break;
-
-                    case ConsoleKey.G:
-                        if (Display.Color != ConsoleColor.Green)
-                        {
-                            Display.Color = ConsoleColor.Green;
-                        }
-                        else
-                        {
-                            Display.Color = ConsoleColor.White;
-                        }
-                        break;
-
-                    case ConsoleKey.B:
-                        if (Display.Color != ConsoleColor.Blue)
-                        {
-                            Display.Color = ConsoleColor.Blue;
-                        }
-                        else
-                        {
-                            Display.Color = ConsoleColor.White;
-                        }
-                        break;
-
-                    case ConsoleKey.C:
-                        if (Display.Color != ConsoleColor.Cyan)
-                        {
-                            Display.Color = ConsoleColor.Cyan;
-                        }
-                        else
-                        {
-                            Display.Color = ConsoleColor.White;
-                        }
-                        break;
-
-                    case ConsoleKey.M:
-                        if (Display.Color != ConsoleColor.Magenta)
-                        {
-                            Display.Color = ConsoleColor.Magenta;
-                        }
-                        else
-                        {
-                            Display.Color = ConsoleColor.White;
-                        }
-                        break;
-
-                    case ConsoleKey.Y:
-                        if (Display.Color != ConsoleColor.Yellow)
-                        {
-                            Display.Color = ConsoleColor.Yellow;
-                        }
-                        else
-                        {
-                            Display.Color = ConsoleColor.White;
+                            ConsoleColor color = colorKeys[Key];
+                            Display.Color = Display.Color == color ? ConsoleColor.White : color;
                         }
                         break;
                 }

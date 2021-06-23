@@ -37,7 +37,7 @@ namespace Hourglass
             Display.FrameChar.AddRange(Display.FrameString.ToString().Select(Chars => Chars.ToString()));
 
             //Set the Values for Movement Calculations
-            string[] Lines = Display.FrameString.ToString().Split((Char)10);
+            string[] Lines = Display.FrameString.ToString().Split((char)10);
             Display.Width = Lines[0].Length + 1;
             Display.Time = (Display.Time * 1000) / (Display.FrameString.ToString().Split('*').Length -1);
 
@@ -47,33 +47,31 @@ namespace Hourglass
 
                 foreach (int i in Enumerable.Range(0, Display.FrameChar.Count).OrderBy(x => Display.Random.Next()))
                 {
-                    int Direction = Display.Random.Next(0, 2);
+                    int Direction = Display.Random.Next(0, 2) == 0 ? -1 : 1;
 
-                    if (Direction == 0){ Direction = -1;}else{ Direction = 1;}
-
-                    if (((i + Display.Width - 1) > 0) && ((i + Display.Width + 1) < Display.FrameChar.Count))
+                    if (((i + Display.Width) > 1) && ((i + Display.Width + 1) < Display.FrameChar.Count) && Display.FrameChar[i] == "*")
                     {
-                        if (Display.FrameChar[i] == "*")
-                        {
-                            Display.FrameChar[i] = " ";
+                        Display.FrameChar[i] = " ";
 
-                            if (Display.FrameChar[i + Display.Width] == " ")
+                        bool replacedString = false;
+
+                        foreach (int index in new int[]
+                        {
+                            i + Display.Width,
+                            i + Display.Width + Direction,
+                            i + Display.Width - Direction
+                        })
+                        {
+                            if (Display.FrameChar[index] == " ")
                             {
-                                Display.FrameChar[i + Display.Width] = "*";
-                            }
-                            else if (Display.FrameChar[i + Display.Width + Direction] == " ")
-                            {
-                                Display.FrameChar[i + Display.Width + Direction] = "*";
-                            }
-                            else if (Display.FrameChar[i + Display.Width + (Direction * -1)] == " ")
-                            {
-                                Display.FrameChar[i + Display.Width + (Direction * -1)] = "*";
-                            }
-                            else
-                            {
-                                Display.FrameChar[i] = "*";
+                                Display.FrameChar[index] = "*";
+                                replacedString = true;
+                                break;
                             }
                         }
+
+                        if (!replacedString)
+                            Display.FrameChar[i] = "*";
                     }
                 }
 
