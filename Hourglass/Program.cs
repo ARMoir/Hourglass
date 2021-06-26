@@ -51,11 +51,7 @@ namespace Hourglass
 
                     if (((i + Display.Width) > 1) && ((i + Display.Width + 1) < Display.FrameChar.Count) && Display.FrameChar[i] == "*")
                     {
-                        Display.FrameChar[i] = " ";
-
-                        bool replacedString = false;
-
-                        foreach (int index in new int[]
+                        foreach (int index in new []
                         {
                             i + Display.Width,
                             i + Display.Width + Direction,
@@ -64,14 +60,11 @@ namespace Hourglass
                         {
                             if (Display.FrameChar[index] == " ")
                             {
+                                Display.FrameChar[i] = " ";
                                 Display.FrameChar[index] = "*";
-                                replacedString = true;
                                 break;
                             }
                         }
-
-                        if (!replacedString)
-                            Display.FrameChar[i] = "*";
                     }
                 }
 
